@@ -482,6 +482,9 @@ document.addEventListener('DOMContentLoaded', () => {
     new ContactForm();
     new VisualEffects();
     new Performance();
+    
+    // Initialize theme toggle
+    initThemeToggle();
 
     // Console easter egg
     console.log('%c👋 Hi there!', 'color: #6366f1; font-size: 24px; font-weight: bold;');
@@ -489,6 +492,32 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('%c📧 Reach out: dollybisht408@gmail.com', 'color: #ec4899; font-size: 14px;');
     console.log('%c✨ This portfolio was built with modern web technologies', 'color: #10b981; font-size: 12px;');
 });
+
+// ========== THEME TOGGLE ==========
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+    
+    // Toggle theme on button click
+    themeToggle?.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        
+        // Save preference
+        const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+        
+        // Add animation
+        themeToggle.style.transform = 'rotate(360deg)';
+        setTimeout(() => {
+            themeToggle.style.transform = '';
+        }, 500);
+    });
+}
 
 // ========== PAGE VISIBILITY ==========
 document.addEventListener('visibilitychange', () => {

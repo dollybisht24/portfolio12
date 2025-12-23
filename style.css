@@ -1,102 +1,104 @@
-:root, [data-theme="dark"] {
-    --bg-primary: #0f1419;
-    --bg-secondary: #1a1d29;
-    --text-primary: #e2e8f0;
-    --text-secondary: #94a3b8;
-    --border-color: rgba(255, 255, 255, 0.1);
-    --shadow: rgba(0, 0, 0, 0.3);
+/* ===== Reset & Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-[data-theme="light"], body.light-theme {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8fafc;
-    --text-primary: #0f172a;
-    --text-secondary: #334155;
-    --border-color: rgba(0, 0, 0, 0.1);
-    --shadow: rgba(0, 0, 0, 0.1);
+:root {
+    /* Light mode colors (default) */
+    --primary-color: #6b2d5c;
+    --secondary-color: #a0466e;
+    --accent-color: #c9577b;
+    --dark-bg: #ffffff;
+    --darker-bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-primary: #2c2c2c;
+    --text-secondary: #555555;
+    --text-muted: #777777;
+    --gradient-1: linear-gradient(135deg, #6b2d5c 0%, #a0466e 50%, #c9577b 100%);
+    --gradient-2: linear-gradient(135deg, #4a2545 0%, #6b2d5c 100%);
+    --gradient-3: linear-gradient(135deg, #c9577b 0%, #e88b9f 100%);
+    --gradient-4: linear-gradient(135deg, #a0466e 0%, #c9577b 100%);
+    --shadow-sm: 0 2px 15px rgba(107, 45, 92, 0.08);
+    --shadow-md: 0 4px 25px rgba(107, 45, 92, 0.12);
+    --shadow-lg: 0 15px 50px rgba(107, 45, 92, 0.15);
+    --shadow-glow: 0 0 40px rgba(107, 45, 92, 0.2);
 }
 
-/* Dark theme (default) - show moon */
-
-/* Light theme - show sun */
-body.light-theme 
-
-body.light-theme 
-
-body.light-theme 
-
-body.light-theme 
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    
-    
-    
+/* Dark mode colors */
+body.dark-mode {
+    --dark-bg: #0f0f0f;
+    --darker-bg: #1a1a1a;
+    --card-bg: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-muted: #888888;
+    --shadow-sm: 0 2px 15px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 25px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 15px 50px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 40px rgba(201, 87, 123, 0.3);
 }
 
-/* ============================================
-   THEME TOGGLE - FULLY FUNCTIONAL
-   ============================================ */
-
-/* Dark theme (default) - Show moon, hide sun */
-[data-theme="dark"] 
-
-[data-theme="dark"] 
-
-/* Light theme - Show sun, hide moon */
-[data-theme="light"] 
-
-[data-theme="light"] 
-
-/* Change button color in light theme */
-[data-theme="light"] 
-
-[data-theme="light"] 
-
-/* Responsive */
-@media (max-width: 768px) {
-    
-    
-    
+html {
+    scroll-behavior: smooth;
 }
 
-@media (max-width: 480px) {
-    
-    
-    
-}
-
-/* Navbar theme support */
-.navbar {
-    background: rgba(15, 20, 25, 0.95);
-    backdrop-filter: blur(10px);
-}
-
-[data-theme="light"] .navbar,
-body.light-theme .navbar {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 10px var(--shadow-sm);
-}
-
-[data-theme="light"] .nav-link,
-body.light-theme .nav-link {
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--dark-bg);
     color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-[data-theme="light"] .logo,
-body.light-theme .logo {
-    color: var(--text-primary);
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Cards theme support */
-.skill-card,
-.tech-skill-card,
-.project-card,
-.cert-card,
-.language-card {
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    border-color: var(--border-color);
+/* ===== Theme Toggle Button ===== */
+.theme-toggle {
+    background: var(--gradient-1);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    color: white;
+    font-size: 1.2rem;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-glow);
+}
+
+.theme-toggle i {
+    transition: transform 0.5s ease;
+}
+
+body.dark-mode .theme-toggle i.fa-moon {
+    display: inline-block;
+}
+
+body.dark-mode .theme-toggle i.fa-sun {
+    display: none;
+}
+
+body:not(.dark-mode) .theme-toggle i.fa-moon {
+    display: none;
+}
+
+body:not(.dark-mode) .theme-toggle i.fa-sun {
+    display: inline-block;
 }
 
 [data-theme="light"] .skill-card,

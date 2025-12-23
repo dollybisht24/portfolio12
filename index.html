@@ -32,12 +32,6 @@
                 <li><a href="#certifications" class="nav-link">Certifications</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                <div class="theme-icons">
-                    <i class="fas fa-sun sun-icon"></i>
-                    <i class="fas fa-moon moon-icon active"></i>
-                </div>
-            </button>
             <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -575,6 +569,147 @@
                         <i class="fas fa-certificate"></i>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Statistics Section -->
+    <section id="github-stats" class="github-stats">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Open Source</span>
+                <h2 class="section-title">GitHub Activity & Contributions</h2>
+                <p class="section-description">Consistent learning and daily contributions through real-world practice and projects</p>
+            </div>
+            
+            <div class="github-content">
+                <!-- GitHub Stats Cards - Real-time Data -->
+                <div class="github-stats-grid">
+                    <div class="github-stat-card live-stats">
+                        <h3 class="stat-card-title">
+                            <i class="fab fa-github"></i>
+                            GitHub Overview
+                        </h3>
+                        <div class="stats-loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading stats...</p>
+                        </div>
+                        <div class="stats-content" style="display: none;">
+                            <div class="stat-item">
+                                <div class="stat-value" id="totalRepos">0</div>
+                                <div class="stat-label">Repositories</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" id="totalStars">0</div>
+                                <div class="stat-label">Total Stars</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" id="totalForks">0</div>
+                                <div class="stat-label">Total Forks</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" id="followers">0</div>
+                                <div class="stat-label">Followers</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="github-stat-card live-stats">
+                        <h3 class="stat-card-title">
+                            <i class="fas fa-code"></i>
+                            Top Languages
+                        </h3>
+                        <div class="languages-loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading languages...</p>
+                        </div>
+                        
+                        <!-- Languages Chart -->
+                        <div class="languages-chart-container" id="languagesChartContainer" style="display: none;">
+                            <canvas id="languagesChart" width="300" height="300"></canvas>
+                        </div>
+                        
+                        <div class="languages-content" id="topLanguages" style="display: none;">
+                            <!-- Languages will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="github-contributions">
+                    <h3 class="contributions-title">
+                        <i class="fas fa-chart-line"></i>
+                        Contribution Activity
+                        <span class="live-indicator">
+                            <span class="pulse-dot"></span>
+                            Live
+                        </span>
+                    </h3>
+                    <div class="activity-loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading activity...</p>
+                    </div>
+                    
+                    <!-- Contribution Graph Canvas -->
+                    <div class="contribution-graph-container" id="contributionGraphContainer" style="display: none;">
+                        <canvas id="contributionGraph" width="800" height="200"></canvas>
+                    </div>
+                    
+                    <div class="activity-timeline" id="recentActivity" style="display: none;">
+                        <!-- Activity items will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Contribution Stats -->
+                <div class="github-streak">
+                    <h3 class="stat-card-title">
+                        <i class="fas fa-fire"></i>
+                        GitHub Contributions
+                    </h3>
+                    
+                    <!-- Contribution Heatmap -->
+                    <div class="contribution-heatmap-container">
+                        <div class="heatmap-loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading contribution heatmap...</p>
+                        </div>
+                        <div id="contributionHeatmap" style="display: none;">
+                            <div class="heatmap-header">
+                                <div class="heatmap-months" id="heatmapMonths"></div>
+                            </div>
+                            <div class="heatmap-body">
+                                <div class="heatmap-days">
+                                    <span>Mon</span>
+                                    <span>Wed</span>
+                                    <span>Fri</span>
+                                </div>
+                                <div class="heatmap-grid" id="heatmapGrid"></div>
+                            </div>
+                            <div class="heatmap-legend">
+                                <span>Less</span>
+                                <div class="legend-square level-0"></div>
+                                <div class="legend-square level-1"></div>
+                                <div class="legend-square level-2"></div>
+                                <div class="legend-square level-3"></div>
+                                <div class="legend-square level-4"></div>
+                                <span>More</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contribution-stats" id="contributionStats">
+                        <div class="stats-loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Calculating contributions...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Attribution -->
+                <p class="github-attribution">
+                    <i class="fas fa-sync-alt fa-spin"></i>
+                    Real-time data from GitHub API • Updates automatically • Last updated: <span id="lastUpdate">now</span>
+                </p>
             </div>
         </div>
     </section>
