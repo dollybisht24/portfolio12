@@ -266,7 +266,30 @@
                     <div class="tools-grid">
                         <div class="tool-badge">
                             <svg viewBox="0 0 128 128" width="48" height="48">
-                                <path fill="#00C7B7" d="M64 14.5L96.5 47l-32.5 32.5L31.5 47 64 14.5zm0 18.25L45.75 51 64 69.25 82.25 51 64 32.75zM64 79.5L31.5 112h65L64 79.5z"/>
+                                <defs>
+                                    <linearGradient id="netlify-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#00C7B7"/>
+                                        <stop offset="100%" style="stop-color:#00C7B7"/>
+                                    </linearGradient>
+                                </defs>
+                                <!-- Top bar -->
+                                <rect x="56" y="16" width="16" height="28" fill="#00C7B7"/>
+                                <!-- Left top diagonal -->
+                                <rect x="32" y="32" width="18" height="10" fill="#00C7B7" transform="rotate(-45 41 37)"/>
+                                <!-- Left bar -->
+                                <rect x="16" y="56" width="28" height="16" fill="#00C7B7"/>
+                                <!-- Left bottom diagonal -->
+                                <rect x="32" y="80" width="18" height="10" fill="#00C7B7" transform="rotate(45 41 85)"/>
+                                <!-- Bottom bar -->
+                                <rect x="56" y="96" width="16" height="28" fill="#00C7B7"/>
+                                <!-- Right bottom diagonal -->
+                                <rect x="78" y="80" width="18" height="10" fill="#00C7B7" transform="rotate(-45 87 85)"/>
+                                <!-- Right bar -->
+                                <rect x="84" y="56" width="28" height="16" fill="#00C7B7"/>
+                                <!-- Right top diagonal -->
+                                <rect x="78" y="32" width="18" height="10" fill="#00C7B7" transform="rotate(45 87 37)"/>
+                                <!-- Center n shape -->
+                                <path fill="#0E1E25" d="M48 56h10v56h-10V56zm22 0h10v28c0 7-5.7 12-12 12h-8V84h8c2.2 0 2-1.8 2-4V56z"/>
                             </svg>
                             <span>Netlify</span>
                         </div>
