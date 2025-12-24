@@ -459,27 +459,6 @@ class ContactForm {
             btnIcon.className = 'fas fa-paper-plane';
         }
     }
-            });
-
-        } catch (error) {
-            console.error('FAILED...', error);
-            
-            // Show error message
-            let errorMessage = 'Failed to send message. Please try again or email me directly.';
-            
-            if (error.text) {
-                errorMessage = error.text;
-            }
-            
-            this.showMessage(errorMessage, 'error');
-        } finally {
-            // Reset button state
-            submitBtn.disabled = false;
-            submitBtn.classList.remove('loading');
-            btnText.textContent = 'Send Message';
-            btnIcon.className = 'fas fa-paper-plane';
-        }
-    }
 
     showNotification(message, type = 'success') {
         // Remove existing notifications
