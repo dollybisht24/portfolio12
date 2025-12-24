@@ -783,17 +783,21 @@
                     </div>
                 </div>
 
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="contact">
+                    <p style="display: none;">
+                        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                    </p>
                     <div id="formMessage" class="form-message"></div>
                     
                     <div class="form-group">
                         <label for="name">Your Name</label>
-                        <input type="text" id="name" name="from_name" required placeholder="John Doe">
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
                     </div>
                     
                     <div class="form-group">
                         <label for="email">Your Email</label>
-                        <input type="email" id="email" name="from_email" required placeholder="john@example.com">
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
                     </div>
                     
                     <div class="form-group">

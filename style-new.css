@@ -1947,6 +1947,30 @@ section {
     color: var(--accent);
 }
 
+/* Form Message Styles */
+.form-message {
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-lg);
+    display: none;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.form-message.success {
+    display: block;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid #10b981;
+    color: #10b981;
+}
+
+.form-message.error {
+    display: block;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid #ef4444;
+    color: #ef4444;
+}
+
 /* === ANIMATIONS === */
 .fade-in-up {
     opacity: 0;

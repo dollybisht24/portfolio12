@@ -284,15 +284,38 @@ class ContactForm {
             return;
         }
 
-        // Here you would typically send the data to a server
-        console.log('Form submitted:', data);
-        
-        this.showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-        this.form.reset();
+        // Show loading state
+        const submitBtn = this.form.querySelector('#submitBtn');
+        const btnText = submitBtn.querySelector('#btnText');
+        const originalText = btnText.textContent;
+        btnText.textContent = 'Sending...';
+        submitBtn.disabled = true;
 
-        // Reset input styles
-        inputs.forEach(input => {
-            input.style.borderColor = '';
+        // Submit to Netlify Forms
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(response => {
+            if (response.ok) {
+                this.showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+                this.form.reset();
+                // Reset input styles
+                inputs.forEach(input => {
+                    input.style.borderColor = '';
+                });
+            } else {
+                throw new Error('Form submission failed');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            this.showNotification('Failed to send message. Please try again or email me directly.', 'error');
+        })
+        .finally(() => {
+            btnText.textContent = originalText;
+            submitBtn.disabled = false;
         });
     }
 
