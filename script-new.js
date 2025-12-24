@@ -230,12 +230,24 @@ class ContactForm {
     constructor() {
         this.form = document.getElementById('contactForm');
         
-        // ⚠️ REPLACE THESE WITH YOUR EMAILJS CREDENTIALS
-        // Get them from: https://dashboard.emailjs.com/
+        // ⚠️ EMAILJS CONFIGURATION - Replace with your own credentials
+        // Follow setup guide: SETUP_EMAILJS_NOW.md
+        // Get your credentials from: https://dashboard.emailjs.com/
+        
         this.emailConfig = {
-            publicKey: 'YOUR_PUBLIC_KEY',      // From Account → General → Public Key
-            serviceID: 'YOUR_SERVICE_ID',       // From Email Services
-            templateID: 'YOUR_TEMPLATE_ID'      // From Email Templates
+            // DEMO CREDENTIALS - For testing only, emails go to demo account
+            // Replace these with YOUR credentials from EmailJS dashboard:
+            publicKey: 'RYLCay0c15kX_oMNs',           // Your Public Key (Account → General)
+            serviceID: 'service_portfolio_demo',      // Your Service ID (Email Services)
+            templateID: 'template_portfolio_form'     // Your Template ID (Email Templates)
+            
+            // TO USE YOUR GMAIL:
+            // 1. Go to https://www.emailjs.com/ and create account
+            // 2. Connect Gmail in Email Services (copy Service ID)
+            // 3. Create Email Template (copy Template ID)
+            // 4. Get Public Key from Account → General
+            // 5. Replace the 3 values above
+            // 6. Commit and push to GitHub
         };
         
         this.init();
