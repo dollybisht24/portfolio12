@@ -229,14 +229,34 @@ class ScrollAnimations {
 class ContactForm {
     constructor() {
         this.form = document.getElementById('contactForm');
+        
+        // ⚠️ REPLACE THESE WITH YOUR EMAILJS CREDENTIALS
+        // Get them from: https://dashboard.emailjs.com/
+        this.emailConfig = {
+            publicKey: 'YOUR_PUBLIC_KEY',      // From Account → General → Public Key
+            serviceID: 'YOUR_SERVICE_ID',       // From Email Services
+            templateID: 'YOUR_TEMPLATE_ID'      // From Email Templates
+        };
+        
         this.init();
     }
 
     init() {
         if (!this.form) return;
 
-        // Initialize EmailJS with your public key
-        emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+        // Check if EmailJS is loaded
+        if (typeof emailjs === 'undefined') {
+            console.error('EmailJS library not loaded!');
+            this.showMessage('Email service unavailable. Please try again later.', 'error');
+            return;
+        }
+
+        // Initialize EmailJS with public key
+        try {
+            emailjs.init(this.emailConfig.publicKey);
+        } catch (error) {
+            console.error('EmailJS initialization error:', error);
+        }
 
         this.form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -347,6 +367,21 @@ class ContactForm {
             return;
         }
 
+        // Check if credentials are configured
+        if (this.emailConfig.publicKey === 'YOUR_PUBLIC_KEY' || 
+            this.emailConfig.serviceID === 'YOUR_SERVICE_ID' || 
+            this.emailConfig.templateID === 'YOUR_TEMPLATE_ID') {
+            this.showMessage('⚠️ EmailJS not configured yet. Please set up your credentials in script-new.js', 'error');
+            console.error('EmailJS Configuration Required!');
+            console.log('Follow these steps:');
+            console.log('1. Go to https://www.emailjs.com/ and create an account');
+            console.log('2. Connect your Gmail in Email Services');
+            console.log('3. Create an Email Template');
+            console.log('4. Get your Public Key from Account settings');
+            console.log('5. Update emailConfig in script-new.js (line 233-237)');
+            return;
+        }
+
         // Get button elements
         const submitBtn = document.getElementById('submitBtn');
         const btnText = document.getElementById('btnText');
@@ -361,15 +396,16 @@ class ContactForm {
         try {
             // Send email using EmailJS
             const response = await emailjs.sendForm(
-                'YOUR_SERVICE_ID',     // Replace with your EmailJS service ID
-                'YOUR_TEMPLATE_ID',    // Replace with your EmailJS template ID
-                this.form
+                this.emailConfig.serviceID,
+                this.emailConfig.templateID,
+                this.form,
+                this.emailConfig.publicKey
             );
 
-            console.log('SUCCESS!', response.status, response.text);
+            console.log('✅ Email sent successfully!', response.status, response.text);
             
             // Show success message
-            this.showMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
+            this.showMessage('✅ Message sent successfully! I\'ll get back to you soon.', 'success');
             
             // Reset form
             this.form.reset();
@@ -378,6 +414,40 @@ class ContactForm {
             const inputs = this.form.querySelectorAll('input, textarea');
             inputs.forEach(input => {
                 input.classList.remove('error', 'success');
+            });
+
+        } catch (error) {
+            console.error('❌ Email sending failed:', error);
+            
+            // Show detailed error message
+            let errorMessage = 'Failed to send message. ';
+            
+            if (error.text) {
+                errorMessage += error.text;
+            } else if (error.message) {
+                errorMessage += error.message;
+            } else {
+                errorMessage += 'Please try again or email me directly.';
+            }
+            
+            // Check for common errors
+            if (error.text && error.text.includes('Public Key')) {
+                errorMessage = '⚠️ Invalid EmailJS Public Key. Please check your configuration.';
+            } else if (error.text && error.text.includes('Service ID')) {
+                errorMessage = '⚠️ Invalid Service ID. Please check your EmailJS settings.';
+            } else if (error.text && error.text.includes('Template')) {
+                errorMessage = '⚠️ Invalid Template ID. Please check your EmailJS template.';
+            }
+            
+            this.showMessage(errorMessage, 'error');
+        } finally {
+            // Reset button state
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('loading');
+            btnText.textContent = 'Send Message';
+            btnIcon.className = 'fas fa-paper-plane';
+        }
+    }
             });
 
         } catch (error) {
