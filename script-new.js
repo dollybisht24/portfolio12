@@ -1157,6 +1157,57 @@ document.addEventListener('visibilitychange', () => {
     }
 });
 
+// ========== ENHANCED SCROLL ANIMATIONS ==========
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            // Stagger animations for child elements
+            const children = entry.target.querySelectorAll('.stagger-item');
+            children.forEach((child, index) => {
+                setTimeout(() => {
+                    child.classList.add('animate-in');
+                }, index * 100);
+            });
+        }
+    });
+}, observerOptions);
+
+// Observe all sections and cards
+document.querySelectorAll('section, .project-card, .cert-card, .tech-skill-card').forEach(el => {
+    observer.observe(el);
+});
+
+// ========== TYPING EFFECT FOR HERO ==========
+function typeWriter(element, text, speed = 100) {
+    let i = 0;
+    element.textContent = '';
+    
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    
+    type();
+}
+
+// Optional: Add typing effect to hero title
+window.addEventListener('load', () => {
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        const titleText = heroTitle.textContent;
+        typeWriter(heroTitle, titleText, 80);
+    }
+});
+
 // ========== EXPORT FOR POTENTIAL TESTING ==========
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
