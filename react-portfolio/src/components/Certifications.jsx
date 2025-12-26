@@ -15,6 +15,14 @@ const Certifications = () => {
       color: '#8b5cf6'
     },
     {
+      title: 'Introducing Generative AI with AWS',
+      issuer: 'Udacity',
+      date: '2024',
+      description: 'Verified Certificate Of Course Completion covering generative AI concepts, AWS services and deployment patterns.',
+      icon: 'fas fa-cloud',
+      color: '#7c3aed'
+    },
+    {
       title: 'Prompt Engineering',
       issuer: 'Professional Certificate',
       date: '2024',
