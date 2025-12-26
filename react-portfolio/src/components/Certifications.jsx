@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from '../Router';
 import './Certifications.css';
 
 const Certifications = () => {
@@ -96,7 +97,7 @@ const Certifications = () => {
                 <p className="cert-description">{cert.description}</p>
                 {cert.image && (
                   <div className="cert-actions">
-                    <a href={cert.image} target="_blank" rel="noopener noreferrer" className="btn-view">View Certificate</a>
+                    <Link to={`/certificate?img=${encodeURIComponent(cert.image)}&title=${encodeURIComponent(cert.title)}`} className="btn-view">View Certificate</Link>
                   </div>
                 )}
               </div>
