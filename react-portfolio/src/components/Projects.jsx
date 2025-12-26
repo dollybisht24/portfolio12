@@ -34,6 +34,16 @@ const Projects = () => {
       githubLink: 'https://github.com/dollybisht24/food-f',
       image: '/images/projects/react.svg'
     }
+    ,
+    {
+      title: 'Todo List',
+      description: 'A lightweight Todo List app demonstrating CRUD operations and local storage persistence.',
+      tags: ['JavaScript', 'HTML', 'CSS'],
+      category: 'JavaScript',
+      liveLink: 'https://todo1gr.netlify.app/',
+      githubLink: '#',
+      image: '/images/projects/todo.svg'
+    }
   ];
 
   const filters = ['All', 'React', 'JavaScript', 'HTML-CSS'];
