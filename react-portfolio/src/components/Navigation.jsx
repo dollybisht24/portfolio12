@@ -27,6 +27,7 @@ const Navigation = () => {
         <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <li><a href="#home" className="nav-link" onClick={() => setIsMenuOpen(false)}>Home</a></li>
           <li><a href="#about" className="nav-link" onClick={() => setIsMenuOpen(false)}>About</a></li>
+           <li><a href="#skills" className="nav-link" onClick={() => setIsMenuOpen(false)}>Skills</a></li>
           <li><Link to="/projects" className="nav-link" onClick={() => setIsMenuOpen(false)}>Projects</Link></li>
           <li><Link to="/certifications" className="nav-link" onClick={() => setIsMenuOpen(false)}>Certifications</Link></li>
           <li><a href="#contact" className="nav-link" onClick={() => setIsMenuOpen(false)}>Contact</a></li>
