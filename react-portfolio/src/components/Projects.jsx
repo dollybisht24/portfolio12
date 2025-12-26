@@ -14,23 +14,25 @@ const Projects = () => {
       category: 'JavaScript',
       liveLink: 'https://blog21313.netlify.app/',
       githubLink: 'https://github.com/dollybisht24',
-      image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=500&fit=crop'
+      image: '/images/projects/blog.svg'
     },
     {
       title: 'Nykaa Clone',
       description: 'A fully responsive e-commerce website clone featuring product listings, shopping cart, and modern UI/UX design.',
       tags: ['HTML', 'CSS', 'JavaScript'],
       category: 'JavaScript',
+      liveLink: 'https://quiz12as.netlify.app/',
       githubLink: 'https://github.com/dollybisht24/makup-F',
-      image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=500&fit=crop'
+      image: '/images/projects/quiz.svg'
     },
     {
       title: 'Food Ordering Website',
       description: 'An interactive food ordering platform with user-friendly interface, menu browsing, and order management features.',
       tags: ['HTML', 'CSS', 'JavaScript'],
       category: 'HTML-CSS',
+      liveLink: 'https://recat23.netlify.app/',
       githubLink: 'https://github.com/dollybisht24/food-f',
-      image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=500&fit=crop'
+      image: '/images/projects/react.svg'
     }
   ];
 
