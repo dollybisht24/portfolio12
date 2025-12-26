@@ -555,47 +555,46 @@
             
             <div class="cert-grid">
                 <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-robot"></i>
+                    <div class="cert-img-wrapper">
+                        <img src="certificates/generative-ai-aws-certificate.png" alt="Machine Learning Course Certificate" class="cert-img" style="width:100%;max-width:220px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);margin-bottom:1rem;" />
                     </div>
                     <div class="cert-content">
                         <h3>Machine Learning Course</h3>
                         <p class="cert-issuer">Udacity</p>
                         <p class="cert-desc">Fundamentals of ML algorithms and applications</p>
-                        <button class="btn btn-primary cert-view-btn" data-cert="ml-certificate.jpg">View Certificate</button>
-                    </div>
-                    <div class="cert-badge">
-                        <i class="fas fa-certificate"></i>
                     </div>
                 </div>
 
                 <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-brain"></i>
+                    <div class="cert-img-wrapper">
+                        <img src="images/certificates/generative-ai-aws-certificate.png" alt="Generative AI with AWS Certificate" class="cert-img" style="width:100%;max-width:220px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);margin-bottom:1rem;" />
+                    </div>
+                    <div class="cert-content">
+                        <h3>Introducing Generative AI with AWS</h3>
+                        <p class="cert-issuer">Udacity</p>
+                        <p class="cert-desc">Verified Certificate Of Course Completion</p>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-img-wrapper">
+                        <img src="images/certificates/generative-ai-aws-certificate.png" alt="Prompt Engineering Certificate" class="cert-img" style="width:100%;max-width:220px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);margin-bottom:1rem;" />
                     </div>
                     <div class="cert-content">
                         <h3>Prompt Engineering</h3>
                         <p class="cert-issuer">Professional Certificate</p>
                         <p class="cert-desc">Advanced AI prompt engineering techniques</p>
-                        <button class="btn btn-primary cert-view-btn" data-cert="prompt-certificate.jpg">View Certificate</button>
-                    </div>
-                    <div class="cert-badge">
-                        <i class="fas fa-certificate"></i>
                     </div>
                 </div>
 
                 <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-award"></i>
+                    <div class="cert-img-wrapper">
+                        <img src="images/certificates/generative-ai-aws-certificate.png" alt="IAYP Certificate" class="cert-img" style="width:100%;max-width:220px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);margin-bottom:1rem;" />
                     </div>
                     <div class="cert-content">
                         <h3>IAYP Certificate</h3>
                         <p class="cert-issuer">International Award for Young People</p>
                         <p class="cert-desc">Leadership and community service recognition</p>
-                        <button class="btn btn-primary cert-view-btn" data-cert="iayp-certificate.jpg">View Certificate</button>
-                    </div>
-                    <div class="cert-badge">
-                        <i class="fas fa-certificate"></i>
                     </div>
                 </div>
             </div>
@@ -835,26 +834,5 @@
     </footer>
 
         <script src="script-new.js"></script>
-        <script>
-        // Certificate Modal Logic
-        document.querySelectorAll('.cert-view-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const cert = this.getAttribute('data-cert');
-                document.getElementById('certModalImg').src = 'images/certificates/' + cert;
-                document.getElementById('certificateModal').style.display = 'flex';
-            });
-        });
-        document.getElementById('certModalClose').onclick = function() {
-            document.getElementById('certificateModal').style.display = 'none';
-            document.getElementById('certModalImg').src = '';
-        };
-        window.onclick = function(event) {
-            const modal = document.getElementById('certificateModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-                document.getElementById('certModalImg').src = '';
-            }
-        };
-        </script>
 </body>
 </html>
