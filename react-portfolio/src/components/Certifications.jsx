@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, navigate } from '../Router';
+import { Link } from '../Router';
 import './Certifications.css';
 
 const Certifications = () => {
@@ -72,39 +72,7 @@ const Certifications = () => {
     };
   }, []);
 
-  // Modal state and URL-sync
-  const [modalImg, setModalImg] = useState(null);
-  const [modalTitle, setModalTitle] = useState('');
-
-  useEffect(() => {
-    const syncFromUrl = () => {
-      const params = new URLSearchParams(window.location.search);
-      const img = params.get('img');
-      const title = params.get('title');
-      if (img) {
-        setModalImg(img);
-        setModalTitle(title || 'Certificate');
-      } else {
-        setModalImg(null);
-        setModalTitle('');
-      }
-    };
-
-    syncFromUrl();
-    window.addEventListener('popstate', syncFromUrl);
-    return () => window.removeEventListener('popstate', syncFromUrl);
-  }, []);
-
-  const openModal = (cert) => {
-    const img = cert.image;
-    const title = cert.title;
-    navigate(`/certifications?img=${encodeURIComponent(img)}&title=${encodeURIComponent(title)}`);
-    // navigate will trigger popstate which syncs modal
-  };
-
-  const closeModal = () => {
-    navigate('/certifications');
-  };
+  // Note: modal removed — View Certificate opens dedicated page
 
   return (
     <section id="certifications" className="certifications" aria-labelledby="certifications-heading" ref={sectionRef}>
@@ -134,8 +102,7 @@ const Certifications = () => {
                   <p className="cert-description">{cert.description}</p>
                   {cert.image && (
                     <div className="cert-actions">
-                      <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); openModal(cert); }} className="btn-view">View Certificate</button>
-                      <Link to={linkUrl} className="btn-view" style={{ marginLeft: 8 }} onClick={(e) => e.stopPropagation()}>Open Page</Link>
+                      <Link to={linkUrl} className="btn-view" onClick={(e) => e.stopPropagation()}>View Certificate</Link>
                     </div>
                   )}
                 </div>
