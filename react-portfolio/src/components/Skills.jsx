@@ -1,3 +1,49 @@
+import React from 'react';
+import './Skills.css';
+
+export default function Skills() {
+  return (
+    <section id="skills" className="skills section" aria-label="Skills and technologies">
+      <div className="container">
+        <div className="section-header">
+          <span className="section-label">What I Bring</span>
+          <h2 className="section-title">Skills & Technologies</h2>
+        </div>
+
+        <div className="skills-container">
+          <div className="skill-category">
+            <h3 className="category-title"><i className="fas fa-code"/> Technical Skills</h3>
+            <div className="tech-skills-grid">
+              <div className="tech-skill-box"><div className="tech-skill-icon">HTML</div><span>HTML5</span></div>
+              <div className="tech-skill-box"><div className="tech-skill-icon">CSS</div><span>CSS3</span></div>
+              <div className="tech-skill-box"><div className="tech-skill-icon">JS</div><span>JavaScript</span></div>
+              <div className="tech-skill-box"><div className="tech-skill-icon">React</div><span>React.js</span></div>
+              <div className="tech-skill-box"><div className="tech-skill-icon">Py</div><span>Python</span></div>
+            </div>
+          </div>
+
+          <div className="skill-category">
+            <h3 className="category-title"><i className="fas fa-tools"/> Tools & Platforms</h3>
+            <div className="tools-grid">
+              <div className="tool-badge">Netlify</div>
+              <div className="tool-badge">Vercel</div>
+              <div className="tool-badge">VS Code</div>
+            </div>
+          </div>
+
+          <div className="skill-category">
+            <h3 className="category-title"><i className="fas fa-users"/> Soft Skills</h3>
+            <div className="soft-skills">
+              <div className="soft-skill"><i className="fas fa-comments"/> Communication</div>
+              <div className="soft-skill"><i className="fas fa-handshake"/> Collaboration</div>
+              <div className="soft-skill"><i className="fas fa-sync-alt"/> Adaptability</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 import React, { useState, useEffect, useRef } from 'react';
 import './Skills.css';
 
