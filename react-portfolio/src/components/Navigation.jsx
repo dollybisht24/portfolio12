@@ -27,7 +27,7 @@ const Navigation = () => {
           <li><a href="#home" className="nav-link" onClick={() => setIsMenuOpen(false)}>Home</a></li>
           <li><a href="#about" className="nav-link" onClick={() => setIsMenuOpen(false)}>About</a></li>
           <li><a href="#skills" className="nav-link" onClick={() => setIsMenuOpen(false)}>Skills</a></li>
-          <li><a href="#projects" className="nav-link" onClick={() => setIsMenuOpen(false)}>Projects</a></li>
+          <li><a href="projects.html" className="nav-link" onClick={() => setIsMenuOpen(false)}>Projects</a></li>
           <li><a href="#certifications" className="nav-link" onClick={() => setIsMenuOpen(false)}>Certifications</a></li>
           <li><a href="#contact" className="nav-link" onClick={() => setIsMenuOpen(false)}>Contact</a></li>
         </ul>

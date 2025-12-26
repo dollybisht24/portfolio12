@@ -53,7 +53,7 @@ const Hero = () => {
               Passionate about clean code, continuous learning, and solving real-world problems through development.
             </p>
             <div className="hero-buttons">
-              <a href="/projects.html" className="btn btn-primary">
+              <a href="projects.html" className="btn btn-primary" target="_self">
                 <span>View Projects</span>
                 <i className="fas fa-arrow-right" aria-hidden="true"></i>
               </a>
