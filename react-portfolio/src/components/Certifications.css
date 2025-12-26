@@ -125,6 +125,25 @@
   margin-top: 1rem;
 }
 
+.cert-actions {
+  margin-top: 1.25rem;
+}
+
+.btn-view {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background: linear-gradient(135deg, #667eea, #7c3aed);
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.18);
+}
+
+.btn-view:hover {
+  transform: translateY(-2px);
+}
+
 /* Animation */
 @keyframes animate-scale-in {
   from {

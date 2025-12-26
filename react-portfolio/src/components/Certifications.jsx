@@ -11,6 +11,7 @@ const Certifications = () => {
       issuer: 'Udacity',
       date: '2023',
       description: 'Fundamentals of ML algorithms and applications including supervised learning, unsupervised learning, and neural networks.',
+      image: '/images/certificates/ml-course.svg',
       icon: 'fas fa-brain',
       color: '#8b5cf6'
     },
@@ -19,6 +20,7 @@ const Certifications = () => {
       issuer: 'Udacity',
       date: '2024',
       description: 'Verified Certificate Of Course Completion covering generative AI concepts, AWS services and deployment patterns.',
+      image: '/images/certificates/genai-aws.svg',
       icon: 'fas fa-cloud',
       color: '#7c3aed'
     },
@@ -27,6 +29,7 @@ const Certifications = () => {
       issuer: 'Professional Certificate',
       date: '2024',
       description: 'Advanced AI prompt engineering techniques for working with large language models and generative AI applications.',
+      image: '/images/certificates/prompt-engineering.svg',
       icon: 'fas fa-robot',
       color: '#10b981'
     },
@@ -35,6 +38,7 @@ const Certifications = () => {
       issuer: 'International Award for Young People',
       date: '2023',
       description: 'Leadership and community service recognition for outstanding contributions and personal development achievements.',
+      image: '/images/certificates/iayp.svg',
       icon: 'fas fa-award',
       color: '#f59e0b'
     }
@@ -90,6 +94,11 @@ const Certifications = () => {
                   <i className="fas fa-calendar"></i> {cert.date}
                 </p>
                 <p className="cert-description">{cert.description}</p>
+                {cert.image && (
+                  <div className="cert-actions">
+                    <a href={cert.image} target="_blank" rel="noopener noreferrer" className="btn-view">View Certificate</a>
+                  </div>
+                )}
               </div>
             </div>
           ))}
