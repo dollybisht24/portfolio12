@@ -1,0 +1,152 @@
+:root {
+  --bg: #0f172a;
+  --text: hsla(213, 84%, 50%, 0.082);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+body {
+  background: #ffffff;
+  color: #334155; /* force body text to dark slate-700 for high contrast */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.app { @apply min-h-screen flex flex-col; }
+
+.glass {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 1px 0 rgba(2,6,23,0.06);
+}
+
+.btn-primary {
+  background: #4f46e5;
+  color: #ffffff;
+  padding-left: 2rem; /* px-8 */
+  padding-right: 2rem;
+  padding-top: .75rem; /* py-3 */
+  padding-bottom: .75rem;
+  border-radius: .75rem; /* rounded-xl */
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  box-shadow: 0 10px 15px -3px rgba(79,70,229,0.08), 0 4px 6px -2px rgba(79,70,229,0.04); /* subtle indigo shadow */
+  transition: all 300ms ease;
+}
+.btn-primary:hover{
+  background: #4338ca;
+  transform: scale(1.05);
+}
+
+.btn-outline{
+  background: #ffffff;
+  border: 2px solid #e6e7eb; /* border-slate-200 */
+  color: #374151; /* text-slate-700 */
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  border-radius: .75rem;
+  font-weight: 600;
+  transition: all 300ms ease;
+}
+.btn-outline:hover{
+  background: #f8fafc; /* slate-50 */
+  border-color: #d1d5db; /* slate-300 */
+  transform: scale(1.05);
+}
+
+/* Improve heading and link contrast in hero and across site */
+h1, h2, h3 {
+  @apply text-slate-950;
+}
+
+/* About page hero styling for a professional, readable heading */
+.about-hero {
+  @apply text-slate-900 font-extrabold leading-tight;
+  font-size: 2rem;
+  max-width: 62ch; /* constrain line length for readability */
+}
+
+@media (min-width: 640px) {
+  .about-hero { font-size: 2.4rem; }
+}
+@media (min-width: 768px) {
+  .about-hero { font-size: 3rem; }
+}
+@media (min-width: 1024px) {
+  .about-hero { font-size: 3.6rem; }
+}
+
+/* Story block text sizing + spacing */
+.story-block { @apply text-slate-700; max-width: 70ch; }
+.story-block p { @apply text-base leading-relaxed; }
+
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  white-space: nowrap;
+  animation: marquee 18s linear infinite;
+  will-change: transform;
+}
+
+/* subtle background blobs */
+.bg-blob {
+  position: absolute;
+  filter: blur(60px) saturate(120%);
+  opacity: 0.12;
+  transform: translateZ(0);
+}
+
+.glow-ring {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(30px);
+  opacity: 0.28;
+}
+
+/* social icon glow */
+.social-glow {
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+.social-glow:hover {
+  box-shadow: 0 6px 30px rgba(99,102,241,0.28), 0 2px 8px rgba(99,102,241,0.18);
+  transform: translateY(-3px);
+}
+
+/* large tech pill defaults */
+.tech-pill {
+  border-radius: 9999px;
+  padding-left: 2.5rem; /* ~px-10 */
+  padding-right: 2.5rem;
+  padding-top: 1rem; /* ~py-4 */
+  padding-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.125rem; /* ~text-xl */
+  box-shadow: 0 8px 20px rgba(2,6,23,0.08);
+}
+
+/* small responsive tweaks for hero */
+@media (min-width: 1024px) {
+  .text-7xl { font-size: 4.5rem; line-height: 1; }
+}
+
+/* Global visibility fixes: force paragraph text to Tailwind's slate-700 */
+p { @apply text-slate-700; }
+
+/* Utility: ensure card hover transform is smooth and consistent */
+.card { @apply transition-all duration-500; }
