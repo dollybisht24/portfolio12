@@ -5,7 +5,7 @@ import { X, Eye } from 'lucide-react'
 import udacityLocal from '../assets/certificates/udacity.png'
 import udacityLogoLocal from '../assets/certificates/udacity-logo.png'
 import udacityLogo from '../assets/certificates/udacity-logo.png'
-import iaypBg from '../assets/certificates/iayp.jpg'
+import iaypCert from '../assets/certificates/iayp.jpg'
 import iaypLogo from '../assets/certificates/iayp-logo.png'
 
 function asset(path){
@@ -65,8 +65,13 @@ function Modal({src, onClose}){
   },[onClose])
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/90 backdrop-blur-sm" onClick={onClose}>
-      <div className="relative w-full max-w-[95%] p-4 flex items-center justify-center" onClick={(e)=>e.stopPropagation()}>
-        <button onClick={onClose} aria-label="Close" className="absolute right-4 top-4 z-[9999] bg-white/90 text-slate-900 rounded-full p-2 hover:bg-red-50 hover:text-red-600 transition-colors shadow">
+      <div className="relative w-full max-w-[95%] p-4 flex items-center justify-center overflow-visible" onClick={(e)=>e.stopPropagation()}>
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          style={{ position: 'absolute', top: '1rem', right: '1rem', zIndex: 9999, cursor: 'pointer', background: 'rgba(255,255,255,0.2)', color: '#ffffff' }}
+          className="rounded-full p-2 hover:opacity-90 transition-colors shadow"
+        >
           <X className="w-5 h-5" />
         </button>
 
@@ -86,11 +91,11 @@ export default function Certifications(){
   // Use imported assets first (handled by Vite). Fall back to public/ paths if necessary.
   const udacityAsset = udacityLocal || asset('/certificates/udacity.png')
   const udacityLogoAsset = udacityLogoLocal || asset('/certificates/udacity-logo.png')
-  const iaypAsset = iaypBg || asset('/certificates/iayp.jpg')
+  const iaypAsset = iaypCert || asset('/certificates/iayp.jpg')
 
   const certs = [
     {title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: udacityAsset || UDACITY_IMAGE, bgImage: udacityLogoAsset, original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
-    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: iaypBg, boxImage: iaypLogo, original: null}
+    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: iaypCert, boxImage: null, original: null}
   ]
 
   return (
