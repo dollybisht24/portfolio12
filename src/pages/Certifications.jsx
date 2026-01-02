@@ -24,6 +24,14 @@ function CertCard({title, issuer, onView, image, bgImage, boxImage}){
           className="hidden md:block absolute right-6 top-1/2 transform -translate-y-1/2 w-1/2 max-w-[320px] opacity-20 pointer-events-none object-contain"
         />
       ) : null}
+      {/* visible preview (certificate thumbnail) placed on the right when provided */}
+      {boxImage ? (
+        <img
+          src={boxImage}
+          alt="preview"
+          className="hidden md:block absolute right-6 top-1/2 transform -translate-y-1/2 w-40 max-w-[320px] pointer-events-none object-contain"
+        />
+      ) : null}
 
       <div className="relative flex flex-col items-start">
         <div className="mb-4">
@@ -69,15 +77,15 @@ function Modal({src, onClose}){
         <button
           onClick={onClose}
           aria-label="Close"
-          style={{ position: 'absolute', top: '1rem', right: '1rem', zIndex: 9999, cursor: 'pointer', background: 'rgba(255,255,255,0.2)', color: '#ffffff' }}
-          className="rounded-full p-2 hover:opacity-90 transition-colors shadow"
+          style={{ position: 'absolute', top: '0.75rem', right: '0.75rem', zIndex: 9999, cursor: 'pointer' }}
+          className="bg-white/20 text-white rounded-full p-2 hover:bg-white/30 transition-shadow shadow-md"
         >
           <X className="w-5 h-5" />
         </button>
 
-        <div className="bg-transparent rounded-md shadow-lg max-h-[90vh] w-full overflow-y-auto flex items-center justify-center">
-          <div className="bg-white p-4 rounded-md shadow-inner border-8 border-white">
-            <img src={src} alt="Certificate" className="w-full h-auto object-contain" />
+        <div className="bg-transparent rounded-md shadow-lg max-h-[80vh] w-full flex items-center justify-center">
+          <div className="bg-white p-4 rounded-md shadow-inner border-8 border-white max-w-[90%]">
+            <img src={src} alt="Certificate" className="max-w-[90%] max-h-[80vh] w-auto h-auto object-contain" />
           </div>
         </div>
       </div>
