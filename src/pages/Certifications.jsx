@@ -5,8 +5,7 @@ import { X, Eye } from 'lucide-react'
 import udacityLocal from '../assets/certificates/udacity.png'
 import udacityLogoLocal from '../assets/certificates/udacity-logo.png'
 import udacityLogo from '../assets/certificates/udacity-logo.png'
-import iaypLocal from '../assets/certificates/iayp.jpg'
-import iaypLogo from '../assets/certificates/iayp.jpg'
+import iaypBg from '../assets/certificates/iayp.jpg'
 
 function asset(path){
   return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
@@ -66,7 +65,7 @@ function Modal({src, onClose}){
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/90 backdrop-blur-sm" onClick={onClose}>
       <div className="relative w-full max-w-[95%] p-4 flex items-center justify-center" onClick={(e)=>e.stopPropagation()}>
-        <button onClick={onClose} aria-label="Close" className="absolute right-4 top-4 z-[110] bg-white/90 text-slate-900 rounded-full p-2 hover:bg-red-50 hover:text-red-600 transition-colors shadow">
+        <button onClick={onClose} aria-label="Close" className="absolute right-4 top-4 z-[9999] bg-white/90 text-slate-900 rounded-full p-2 hover:bg-red-50 hover:text-red-600 transition-colors shadow">
           <X className="w-5 h-5" />
         </button>
 
@@ -86,11 +85,11 @@ export default function Certifications(){
   // Use imported assets first (handled by Vite). Fall back to public/ paths if necessary.
   const udacityAsset = udacityLocal || asset('/certificates/udacity.png')
   const udacityLogoAsset = udacityLogoLocal || asset('/certificates/udacity-logo.png')
-  const iaypAsset = iaypLocal || asset('/certificates/iayp.jpg')
+  const iaypAsset = iaypBg || asset('/certificates/iayp.jpg')
 
   const certs = [
     {title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: udacityAsset || UDACITY_IMAGE, bgImage: udacityLogoAsset, original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
-    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: null, boxImage: iaypAsset, original: null}
+    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: iaypBg, original: null}
   ]
 
   return (
