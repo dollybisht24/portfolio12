@@ -6,7 +6,7 @@ import udacityLocal from '../assets/certificates/udacity.png'
 import udacityLogoLocal from '../assets/certificates/udacity-logo.png'
 import udacityLogo from '../assets/certificates/udacity-logo.png'
 import iaypBg from '../assets/certificates/iayp.jpg'
-import iaypLogo from '../assets/certificates/iayp-logo.png'
+import iaypLogo from '../assets/iayp-logo.png'
 
 function asset(path){
   return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
@@ -21,7 +21,7 @@ function CertCard({title, issuer, onView, image, bgImage, boxImage}){
         <img
           src={bgImage}
           alt="bg"
-          className="hidden md:block absolute right-6 top-1/2 transform -translate-y-1/2 w-1/2 max-w-[320px] opacity-20 pointer-events-none object-contain"
+          className="hidden md:block absolute right-6 top-1/2 transform -translate-y-1/2 w-1/2 max-w-[320px] opacity-10 pointer-events-none object-contain"
         />
       ) : null}
 
@@ -95,7 +95,7 @@ export default function Certifications(){
 
   const certs = [
     {title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: udacityAsset || UDACITY_IMAGE, bgImage: udacityLogoAsset, original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
-    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: iaypBg, boxImage: iaypLogo, original: null}
+    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: iaypLogo, boxImage: iaypBg, original: null}
   ]
 
   return (
