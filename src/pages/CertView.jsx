@@ -1,10 +1,17 @@
 import React from 'react'
 import { DownloadCloud } from 'lucide-react'
 
+// Import the certificate so Vite includes and rewrites it for production
+import udacityLocal from '../assets/certificates/udacity.png'
+
 const UDACITY_URL = 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'
 
+function asset(path){
+  return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+}
+
 export default function CertView(){
-  const imagePath = '/certificates/udacity.png'
+  const imagePath = udacityLocal || asset('/certificates/udacity.png')
 
   const handleShare = async () => {
     const shareUrl = UDACITY_URL

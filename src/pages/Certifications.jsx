@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { X, Eye } from 'lucide-react'
 
+// Prefer bundling images from src so Vite rewrites and fingerprints them for production.
+import udacityLocal from '../assets/certificates/udacity.png'
+import udacityLogoLocal from '../assets/certificates/udacity-logo.png'
+import iaypLocal from '../assets/certificates/iayp.jpg'
+
 function asset(path){
   return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
 }
@@ -72,11 +77,15 @@ function Modal({src, onClose}){
 
 export default function Certifications(){
   const [selectedCert, setSelectedCert] = useState(null)
-  const UDACITY_LOCAL = asset('/certificates/udacity.png')
+
+  // Use imported assets first (handled by Vite). Fall back to public/ paths if necessary.
+  const udacityAsset = udacityLocal || asset('/certificates/udacity.png')
+  const udacityLogoAsset = udacityLogoLocal || asset('/certificates/udacity-logo.png')
+  const iaypAsset = iaypLocal || asset('/certificates/iayp.jpg')
 
   const certs = [
-    {title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: UDACITY_LOCAL || UDACITY_IMAGE, bgImage: asset('/certificates/udacity-logo.png'), original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
-    {title: 'IAYP International Award', issuer: 'IAYP', image: 'https://media.discordapp.net/attachments/1365924837087772684/1453689514320203928/1766656981122.jpg?ex=6951a91c&is=6950579c&hm=7ceacb7f03713a1893092fe2afeb5460ee3894a44bf03ad9d1bc9088c44ebcd8&=&format=webp&width=671&height=895', bgImage: asset('/certificates/iayp.jpg'), original: null}
+    {title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: udacityAsset || UDACITY_IMAGE, bgImage: udacityLogoAsset, original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
+    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: iaypAsset, original: null}
   ]
 
   return (
