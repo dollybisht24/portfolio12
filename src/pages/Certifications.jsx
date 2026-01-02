@@ -5,7 +5,7 @@ import { X, Eye } from 'lucide-react'
 import udacityLocal from '../assets/certificates/udacity.png'
 import udacityLogoLocal from '../assets/certificates/udacity-logo.png'
 import udacityLogo from '../assets/certificates/udacity-logo.png'
-import iaypCert from '../assets/certificates/iayp.jpg'
+import iaypBg from '../assets/certificates/iayp.jpg'
 import iaypLogo from '../assets/certificates/iayp-logo.png'
 
 function asset(path){
@@ -91,11 +91,11 @@ export default function Certifications(){
   // Use imported assets first (handled by Vite). Fall back to public/ paths if necessary.
   const udacityAsset = udacityLocal || asset('/certificates/udacity.png')
   const udacityLogoAsset = udacityLogoLocal || asset('/certificates/udacity-logo.png')
-  const iaypAsset = iaypCert || asset('/certificates/iayp.jpg')
+  const iaypAsset = iaypBg || asset('/certificates/iayp.jpg')
 
   const certs = [
     {title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: udacityAsset || UDACITY_IMAGE, bgImage: udacityLogoAsset, original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
-    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: iaypCert, boxImage: null, original: null}
+    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: iaypLogo, boxImage: iaypBg, original: null}
   ]
 
   return (
