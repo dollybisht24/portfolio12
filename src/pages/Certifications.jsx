@@ -24,14 +24,6 @@ function CertCard({title, issuer, onView, image, bgImage, boxImage}){
           className="hidden md:block absolute right-6 top-1/2 transform -translate-y-1/2 w-1/2 max-w-[320px] opacity-20 pointer-events-none object-contain"
         />
       ) : null}
-      {/* visible preview (certificate thumbnail) placed on the right when provided */}
-      {boxImage ? (
-        <img
-          src={boxImage}
-          alt="preview"
-          className="hidden md:block absolute right-6 top-1/2 transform -translate-y-1/2 w-40 max-w-[320px] pointer-events-none object-contain"
-        />
-      ) : null}
 
       <div className="relative flex flex-col items-start">
         <div className="mb-4">
@@ -103,7 +95,7 @@ export default function Certifications(){
 
   const certs = [
     {title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: udacityAsset || UDACITY_IMAGE, bgImage: udacityLogoAsset, original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
-    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: iaypLogo, boxImage: iaypBg, original: null}
+    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: iaypBg, boxImage: iaypLogo, original: null}
   ]
 
   return (
