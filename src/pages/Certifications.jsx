@@ -14,7 +14,7 @@ function asset(path){
 
 const UDACITY_IMAGE = 'https://media.discordapp.net/attachments/1365924837087772684/1454711245255999558/image.png?ex=695214ec&is=6950c36c&hm=5ea3bd4e0c1a395ebd6f3636a6b45da90dc1267890d169c36d4bb214669888cd&=&format=webp&quality=lossless&width=1164&height=895'
 
-function CertCard({title, issuer, onView, image, bgImage}){
+function CertCard({title, issuer, onView, image, bgImage, boxImage}){
   return (
     <div className="relative bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
       {bgImage ? (
@@ -27,9 +27,12 @@ function CertCard({title, issuer, onView, image, bgImage}){
 
       <div className="relative flex flex-col items-start">
         <div className="mb-4">
-          <div className="w-12 h-12 rounded-lg bg-slate-50 flex items-center justify-center border border-slate-100">
-            {/* professional icon / logo placeholder */}
-            <svg className="w-6 h-6 text-indigo-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L20 8v8l-8 6-8-6V8l8-6z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          <div className="w-12 h-12 rounded-lg bg-slate-50 flex items-center justify-center border border-slate-100 overflow-hidden">
+            {boxImage ? (
+              <img src={boxImage} alt={`${title} logo`} className="w-8 h-8 object-contain" />
+            ) : (
+              <svg className="w-6 h-6 text-indigo-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L20 8v8l-8 6-8-6V8l8-6z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            )}
           </div>
         </div>
 
@@ -87,7 +90,7 @@ export default function Certifications(){
 
   const certs = [
     {title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: udacityAsset || UDACITY_IMAGE, bgImage: udacityLogoAsset, original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
-    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: iaypLogo, original: null}
+    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: null, boxImage: iaypAsset, original: null}
   ]
 
   return (
