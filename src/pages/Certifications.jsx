@@ -90,7 +90,7 @@ export default function Certifications(){
 
   const certs = [
     {title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: udacityAsset || UDACITY_IMAGE, bgImage: udacityLogoAsset, original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
-    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: iaypAsset, boxImage: 'https://github.com/dollybisht24/portfolio12/blob/main/public/certificates/iayp.jpg?raw=true', original: null}
+    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: null, boxImage: iaypAsset, original: null}
   ]
 
   return (
