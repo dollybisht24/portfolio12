@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { X, Eye } from 'lucide-react'
 
+function asset(path){
+  return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+}
+
 const UDACITY_IMAGE = 'https://media.discordapp.net/attachments/1365924837087772684/1454711245255999558/image.png?ex=695214ec&is=6950c36c&hm=5ea3bd4e0c1a395ebd6f3636a6b45da90dc1267890d169c36d4bb214669888cd&=&format=webp&quality=lossless&width=1164&height=895'
 
 function CertCard({title, issuer, onView, image, bgImage}){
@@ -68,10 +72,11 @@ function Modal({src, onClose}){
 
 export default function Certifications(){
   const [selectedCert, setSelectedCert] = useState(null)
+  const UDACITY_LOCAL = asset('/certificates/udacity.png')
 
   const certs = [
-    {title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: UDACITY_IMAGE, bgImage: '/certificates/udacity-logo.png', original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
-    {title: 'IAYP International Award', issuer: 'IAYP', image: 'https://media.discordapp.net/attachments/1365924837087772684/1453689514320203928/1766656981122.jpg?ex=6951a91c&is=6950579c&hm=7ceacb7f03713a1893092fe2afeb5460ee3894a44bf03ad9d1bc9088c44ebcd8&=&format=webp&width=671&height=895', bgImage: '/certificates/iayp.jpg', original: null}
+    {title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: UDACITY_LOCAL || UDACITY_IMAGE, bgImage: asset('/certificates/udacity-logo.png'), original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
+    {title: 'IAYP International Award', issuer: 'IAYP', image: 'https://media.discordapp.net/attachments/1365924837087772684/1453689514320203928/1766656981122.jpg?ex=6951a91c&is=6950579c&hm=7ceacb7f03713a1893092fe2afeb5460ee3894a44bf03ad9d1bc9088c44ebcd8&=&format=webp&width=671&height=895', bgImage: asset('/certificates/iayp.jpg'), original: null}
   ]
 
   return (
