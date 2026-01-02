@@ -6,7 +6,7 @@ import udacityLocal from '../assets/certificates/udacity.png'
 import udacityLogoLocal from '../assets/certificates/udacity-logo.png'
 import udacityLogo from '../assets/certificates/udacity-logo.png'
 import iaypBg from '../assets/certificates/iayp.jpg'
-import iaypLogo from '../assets/iayp-logo.png'
+import iaypLogo from '../assets/certificates/iayp-logo.png'
 
 function asset(path){
   return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
