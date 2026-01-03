@@ -65,8 +65,8 @@ function Modal({src, onClose}){
   },[onClose])
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black" onClick={onClose}>
-      <div className="relative w-full h-full flex items-center justify-center p-4 md:p-12" onClick={(e)=>e.stopPropagation()}>
-        <img src={src} alt="Certificate" className="max-w-full max-h-full w-auto h-auto object-contain" />
+      <div className="relative w-full h-full flex items-center justify-center p-8 md:p-16" onClick={(e)=>e.stopPropagation()}>
+        <img src={src} alt="Certificate" className="w-[90%] h-auto object-contain" />
       </div>
     </div>
   )
