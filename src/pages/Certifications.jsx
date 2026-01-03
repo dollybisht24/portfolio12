@@ -15,25 +15,13 @@ function asset(path){
 
 const UDACITY_IMAGE = 'https://media.discordapp.net/attachments/1365924837087772684/1454711245255999558/image.png?ex=695214ec&is=6950c36c&hm=5ea3bd4e0c1a395ebd6f3636a6b45da90dc1267890d169c36d4bb214669888cd&=&format=webp&quality=lossless&width=1164&height=895'
 
-function CertCard({title, issuer, onView, image, bgImage, boxImage, certId}){
+function CertCard({title, issuer, onView, image, certId}){
   return (
     <div className="relative bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
-      {bgImage ? (
-        <img
-          src={bgImage}
-          alt="bg"
-          className="hidden md:block absolute right-8 top-1/2 transform -translate-y-1/2 w-1/3 max-w-[260px] opacity-10 pointer-events-none object-contain"
-        />
-      ) : null}
-
       <div className="relative flex flex-col items-start">
         <div className="mb-4">
           <div className="w-12 h-12 rounded-lg bg-slate-50 flex items-center justify-center border border-slate-100 overflow-hidden">
-            {boxImage ? (
-              <img src={boxImage} alt={`${title} logo`} className="w-8 h-8 object-contain" />
-            ) : (
-              <svg className="w-6 h-6 text-indigo-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L20 8v8l-8 6-8-6V8l8-6z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            )}
+            <svg className="w-6 h-6 text-indigo-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L20 8v8l-8 6-8-6V8l8-6z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </div>
         </div>
 
@@ -67,8 +55,8 @@ export default function Certifications(){
   const iaypAsset = iaypBg || asset('/certificates/iayp.jpg')
 
   const certs = [
-    {certId: 'udacity', title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: udacityAsset || UDACITY_IMAGE, bgImage: udacityLogoAsset, original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
-    {certId: 'iayp', title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: null, boxImage: 'https://www.tges.org/wp-content/uploads/2023/02/iayp.jpg', original: null}
+    {certId: 'udacity', title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: udacityAsset || UDACITY_IMAGE, original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
+    {certId: 'iayp', title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, original: null}
   ]
 
   return (
