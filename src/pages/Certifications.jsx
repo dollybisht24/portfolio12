@@ -64,9 +64,9 @@ function Modal({src, onClose}){
     return ()=> window.removeEventListener('keydown', onKey)
   },[onClose])
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100" onClick={onClose}>
-      <div className="relative w-full h-full flex items-center justify-center p-8" onClick={(e)=>e.stopPropagation()}>
-        <img src={src} alt="Certificate" className="max-w-full max-h-full w-auto h-auto object-contain shadow-2xl" />
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black" onClick={onClose}>
+      <div className="relative w-full h-full flex items-center justify-center p-4 md:p-12" onClick={(e)=>e.stopPropagation()}>
+        <img src={src} alt="Certificate" className="max-w-full max-h-full w-auto h-auto object-contain" />
       </div>
     </div>
   )
