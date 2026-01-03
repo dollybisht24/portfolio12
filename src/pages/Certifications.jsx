@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { X, Eye } from 'lucide-react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Eye } from 'lucide-react'
 
 // Prefer bundling images from src so Vite rewrites and fingerprints them for production.
 import udacityLocal from '../assets/certificates/udacity.png'
@@ -14,7 +15,7 @@ function asset(path){
 
 const UDACITY_IMAGE = 'https://media.discordapp.net/attachments/1365924837087772684/1454711245255999558/image.png?ex=695214ec&is=6950c36c&hm=5ea3bd4e0c1a395ebd6f3636a6b45da90dc1267890d169c36d4bb214669888cd&=&format=webp&quality=lossless&width=1164&height=895'
 
-function CertCard({title, issuer, onView, image, bgImage, boxImage}){
+function CertCard({title, issuer, onView, image, bgImage, boxImage, certId}){
   return (
     <div className="relative bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
       {bgImage ? (
@@ -57,23 +58,8 @@ function CertCard({title, issuer, onView, image, bgImage, boxImage}){
   )
 }
 
-function Modal({src, onClose}){
-  useEffect(()=>{
-    function onKey(e){ if(e.key === 'Escape') onClose() }
-    window.addEventListener('keydown', onKey)
-    return ()=> window.removeEventListener('keydown', onKey)
-  },[onClose])
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black" onClick={onClose}>
-      <div className="relative w-full h-full flex items-center justify-center p-8 md:p-16" onClick={(e)=>e.stopPropagation()}>
-        <img src={src} alt="Certificate" className="w-[90%] h-auto object-contain" />
-      </div>
-    </div>
-  )
-}
-
 export default function Certifications(){
-  const [selectedCert, setSelectedCert] = useState(null)
+  const navigate = useNavigate()
 
   // Use imported assets first (handled by Vite). Fall back to public/ paths if necessary.
   const udacityAsset = udacityLocal || asset('/certificates/udacity.png')
@@ -81,8 +67,8 @@ export default function Certifications(){
   const iaypAsset = iaypBg || asset('/certificates/iayp.jpg')
 
   const certs = [
-    {title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: udacityAsset || UDACITY_IMAGE, bgImage: udacityLogoAsset, original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
-    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: null, boxImage: 'https://www.tges.org/wp-content/uploads/2023/02/iayp.jpg', original: null}
+    {certId: 'udacity', title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: udacityAsset || UDACITY_IMAGE, bgImage: udacityLogoAsset, original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
+    {certId: 'iayp', title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: null, boxImage: 'https://www.tges.org/wp-content/uploads/2023/02/iayp.jpg', original: null}
   ]
 
   return (
@@ -92,15 +78,11 @@ export default function Certifications(){
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
         {certs.map(c => (
           <div key={c.title}>
-            <CertCard {...c} onView={() => c.image ? setSelectedCert(c) : null} />
+            <CertCard {...c} onView={() => navigate(`/certifications/${c.certId}`)} />
             <div className="mt-2 text-sm text-slate-500">{c.original ? <a href={c.original} target="_blank" rel="noopener noreferrer" className="text-indigo-600">Open original</a> : null}</div>
           </div>
         ))}
       </div>
-
-      {selectedCert && selectedCert.image && (
-        <Modal src={selectedCert.image} onClose={() => setSelectedCert(null)} />
-      )}
     </section>
   )
 }

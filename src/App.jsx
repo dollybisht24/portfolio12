@@ -23,7 +23,7 @@ export default function App(){
             <Route path="/skills" element={<Skills/>} />
             <Route path="/education" element={<Education/>} />
             <Route path="/certifications" element={<Certifications/>} />
-            <Route path="/certifications/udacity" element={<CertView/>} />
+            <Route path="/certifications/:certId" element={<CertView/>} />
             <Route path="/projects" element={<Projects/>} />
             <Route path="/contact" element={<Contact/>} />
           </Routes>
