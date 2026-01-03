@@ -153,13 +153,10 @@ export default function CertView(){
 
             {/* Certificate Image */}
             <div className={`relative bg-white rounded-lg border border-slate-200 shadow-2xl overflow-hidden transition-all duration-700 ${imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-              {/* Subtle paper texture overlay */}
-              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiNmOWZhZmIiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=')] opacity-30 pointer-events-none"></div>
-              
               <img 
                 src={cert.image} 
                 alt={cert.title}
-                className="relative w-full h-auto object-contain"
+                className="w-full h-auto object-contain"
                 onLoad={() => setImageLoaded(true)}
                 onError={() => setImageError(true)}
                 style={{ imageRendering: 'high-quality' }}
