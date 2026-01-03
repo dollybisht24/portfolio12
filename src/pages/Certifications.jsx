@@ -64,22 +64,9 @@ function Modal({src, onClose}){
     return ()=> window.removeEventListener('keydown', onKey)
   },[onClose])
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/90 backdrop-blur-sm" onClick={onClose}>
-      <div className="relative w-full max-w-[95%] p-4 flex items-center justify-center overflow-visible" onClick={(e)=>e.stopPropagation()}>
-        <button
-          onClick={onClose}
-          aria-label="Close"
-          style={{ position: 'absolute', top: '0.75rem', right: '0.75rem', zIndex: 9999, cursor: 'pointer' }}
-          className="bg-white/20 text-white rounded-full p-2 hover:bg-white/30 transition-shadow shadow-md"
-        >
-          <X className="w-5 h-5" />
-        </button>
-
-        <div className="bg-transparent rounded-md shadow-lg max-h-[80vh] w-full flex items-center justify-center">
-          <div className="bg-white p-4 rounded-md shadow-inner border-8 border-white max-w-[90%]">
-            <img src={src} alt="Certificate" className="max-w-[90%] max-h-[80vh] w-auto h-auto object-contain" />
-          </div>
-        </div>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100" onClick={onClose}>
+      <div className="relative w-full h-full flex items-center justify-center p-8" onClick={(e)=>e.stopPropagation()}>
+        <img src={src} alt="Certificate" className="max-w-full max-h-full w-auto h-auto object-contain shadow-2xl" />
       </div>
     </div>
   )
@@ -95,7 +82,7 @@ export default function Certifications(){
 
   const certs = [
     {title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: udacityAsset || UDACITY_IMAGE, bgImage: udacityLogoAsset, original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
-    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: null, boxImage: null, original: null}
+    {title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, bgImage: null, boxImage: 'https://www.tges.org/wp-content/uploads/2023/02/iayp.jpg', original: null}
   ]
 
   return (
