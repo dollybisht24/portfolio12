@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
+import profileImage from '../assets/bisht.png'
 
 const techItems = [
   { key: 'html', label: 'HTML5', short: 'H', bgClass: 'bg-orange-50', textClass: 'text-orange-600' },
@@ -91,7 +92,7 @@ export default function Home(){
             <motion.div initial={{opacity:0, x:30}} animate={{opacity:1, x:0}} transition={{delay:0.2}} className="flex justify-center lg:justify-end">
             <div className="relative w-96 h-96 md:w-[28rem] md:h-[28rem] flex items-center justify-center">
               <div className="relative w-96 h-96 md:w-[28rem] md:h-[28rem] rounded-full bg-white shadow-2xl overflow-hidden flex items-center justify-center">
-                <img src="/images/Dolly1-fixed.jpg" alt="Dolly profile" className="w-full h-full object-cover object-center" />
+                <img src={profileImage} alt="Dolly profile" className="w-full h-full object-cover object-top scale-110" />
               </div>
             </div>
           </motion.div>
