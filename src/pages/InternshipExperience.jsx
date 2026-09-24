@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ExternalLink, Eye, Calendar, MapPin, CheckCircle2 } from 'lucide-react'
+import { Eye, Calendar, MapPin, CheckCircle2 } from 'lucide-react'
 
 const internships = [
   {
@@ -20,7 +20,6 @@ const internships = [
       'Utilized AI-assisted engineering practices to accelerate UI component development and workflow testing.'
     ],
     tools: ['React.js', 'JavaScript (ES6+)', 'Tailwind CSS', 'REST APIs', 'Git & GitHub', 'Figma'],
-    liveLink: 'https://curelystic-uzjz.vercel.app/',
     certRoute: '/certifications/curelystics'
   },
   {
@@ -124,17 +123,6 @@ export default function InternshipExperience(){
                 </div>
 
                 <div className="flex items-center gap-3">
-                  {exp.liveLink && (
-                    <a 
-                      href={exp.liveLink} 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="btn-primary inline-flex items-center gap-2 text-sm"
-                    >
-                      <ExternalLink size={16} />
-                      <span>Live Platform</span>
-                    </a>
-                  )}
                   <Link 
                     to={exp.certRoute} 
                     className="btn-outline inline-flex items-center gap-2 text-sm"
