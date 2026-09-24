@@ -13,23 +13,25 @@ export default function Footer(){
             <div className="flex items-center gap-3">
               <div>
                 <div className="text-xl font-extrabold">Dolly Bisht</div>
-                <div className="text-sm text-slate-400">2nd year BCA Scholar</div>
+                <div className="text-sm text-slate-400">3rd-year BCA Scholar · Full Stack Developer</div>
               </div>
               <div className="flex items-center gap-2 ml-4">
                 <span className="inline-block w-3 h-3 rounded-full bg-emerald-400" aria-hidden="true" />
-                <span className="text-sm text-emerald-300">Available for Internships</span>
+                <span className="text-sm text-emerald-300">Available for Opportunities</span>
               </div>
             </div>
-            <p className="mt-2 text-sm text-slate-400 max-w-md">I build accessible, responsive frontends and enjoy turning ideas into delightful user experiences.</p>
+            <p className="mt-2 text-sm text-slate-400 max-w-md">I build modern, scalable web applications and enjoy turning ideas into high-performance digital products.</p>
           </div>
 
           {/* Center - navigation */}
           <nav className="flex-1 flex justify-center">
-            <ul className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-center">
+            <ul className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-center">
               <li><Link to="/" className="text-sm text-slate-300 hover:text-indigo-400 transition-colors">Home</Link></li>
               <li><Link to="/about" className="text-sm text-slate-300 hover:text-indigo-400 transition-colors">About</Link></li>
               <li><Link to="/skills" className="text-sm text-slate-300 hover:text-indigo-400 transition-colors">Skills</Link></li>
               <li><Link to="/education" className="text-sm text-slate-300 hover:text-indigo-400 transition-colors">Education</Link></li>
+              <li><Link to="/certifications" className="text-sm text-slate-300 hover:text-indigo-400 transition-colors">Certifications</Link></li>
+              <li><Link to="/experience" className="text-sm text-slate-300 hover:text-indigo-400 transition-colors">Experience</Link></li>
               <li><Link to="/projects" className="text-sm text-slate-300 hover:text-indigo-400 transition-colors">Projects</Link></li>
               <li><Link to="/contact" className="text-sm text-slate-300 hover:text-indigo-400 transition-colors">Contact</Link></li>
             </ul>
@@ -38,17 +40,17 @@ export default function Footer(){
           {/* Right - social icons */}
           <div className="flex flex-col items-end sm:items-end gap-3">
             <div className="flex items-center gap-3">
-              <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-3 bg-slate-800 rounded-full text-white hover:bg-indigo-600 transition-all transform hover:scale-110">
+              <a href="https://www.linkedin.com/in/dolly-bisht-6584b6399/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-3 bg-slate-800 rounded-full text-white hover:bg-indigo-600 transition-all transform hover:scale-110">
                 <Linkedin size={20} />
               </a>
-              <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-3 bg-slate-800 rounded-full text-white hover:bg-indigo-600 transition-all transform hover:scale-110">
+              <a href="https://github.com/dollybisht24" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-3 bg-slate-800 rounded-full text-white hover:bg-indigo-600 transition-all transform hover:scale-110">
                 <Github size={20} />
               </a>
-              <a href="mailto:hello@example.com" aria-label="Email" className="p-3 bg-slate-800 rounded-full text-white hover:bg-indigo-600 transition-all transform hover:scale-110">
+              <a href="mailto:dollybisht408@gmail.com" aria-label="Email" className="p-3 bg-slate-800 rounded-full text-white hover:bg-indigo-600 transition-all transform hover:scale-110">
                 <Mail size={20} />
               </a>
             </div>
-            <p className="mt-2 text-sm text-slate-400">Open to collaborations, internships & freelance work.</p>
+            <p className="mt-2 text-sm text-slate-400">Open to full-stack collaborations & internships.</p>
           </div>
         </div>
 

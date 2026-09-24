@@ -6,7 +6,7 @@ export default function Education(){
     <section className="bg-white py-32">
       <div className="max-w-7xl mx-auto px-6">
         <header className="mb-16">
-          <h2 className="text-6xl font-black text-slate-900">Education</h2>
+          <h2 className="text-5xl lg:text-6xl font-black text-slate-900 tracking-tight">Education</h2>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

@@ -13,6 +13,16 @@ const categories = [
     ]
   },
   {
+    key: 'backend',
+    title: 'Backend & Database',
+    skills: [
+      {name: 'Node.js', mastery: 66, bg: 'bg-emerald-50', text: 'text-emerald-700'},
+      {name: 'Express.js', mastery: 65, bg: 'bg-slate-100', text: 'text-slate-800'},
+      {name: 'MongoDB', mastery: 64, bg: 'bg-green-50', text: 'text-green-700'},
+      {name: 'REST APIs', mastery: 67, bg: 'bg-purple-50', text: 'text-purple-700'}
+    ]
+  },
+  {
     key: 'logic',
     title: 'Programming Logic',
     skills: [
@@ -76,7 +86,7 @@ export default function Skills(){
   return (
     <section className="py-32 bg-white">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto px-6">
-        <h2 className="col-span-1 md:col-span-2 text-6xl font-black text-slate-900 mb-12">Skills</h2>
+        <h2 className="col-span-1 md:col-span-2 text-5xl lg:text-6xl font-black text-slate-900 mb-12 tracking-tight">Skills</h2>
 
         {categories.map(cat => (
           <article key={cat.key} className="p-8 bg-white rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 transform transition duration-500 hover:shadow-2xl hover:-translate-y-2">

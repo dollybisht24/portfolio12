@@ -51,8 +51,16 @@ export default function Contact(){
   }
 
   return (
-    <section className="bg-slate-50 py-20">
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+    <section className="bg-slate-50 py-32">
+      <div className="max-w-6xl mx-auto px-6">
+        <header className="mb-16">
+          <h2 className="text-5xl lg:text-6xl font-black text-slate-900 tracking-tight">Contact</h2>
+          <p className="mt-4 text-lg text-slate-600 max-w-2xl leading-relaxed">
+            Get in touch for internships, full-time opportunities, or collaborative projects.
+          </p>
+        </header>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
         {/* Left: Contact Form */}
         <div className="bg-white p-10 rounded-3xl shadow-2xl">
           <h2 className="text-3xl font-extrabold text-slate-900">Send a Message</h2>
@@ -162,6 +170,7 @@ export default function Contact(){
           </div>
         </aside>
       </div>
-    </section>
+    </div>
+  </section>
   )
 }

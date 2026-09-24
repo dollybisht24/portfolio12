@@ -8,6 +8,8 @@ import udacityLogoLocal from '../assets/certificates/udacity-logo.png'
 import udacityLogo from '../assets/certificates/udacity-logo.png'
 import iaypBg from '../assets/certificates/iayp.jpg'
 import iaypLogo from '../assets/certificates/iayp-logo.png'
+import curelysticsLocal from '../assets/certificates/curelystics-internship.png'
+import cloudwavesLocal from '../assets/certificates/cloudwaves-internship.png'
 
 function asset(path){
   return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
@@ -53,15 +55,19 @@ export default function Certifications(){
   const udacityAsset = udacityLocal || asset('/certificates/udacity.png')
   const udacityLogoAsset = udacityLogoLocal || asset('/certificates/udacity-logo.png')
   const iaypAsset = iaypBg || asset('/certificates/iayp.jpg')
+  const curelysticsAsset = curelysticsLocal || asset('/certificates/curelystics-internship.png')
+  const cloudwavesAsset = cloudwavesLocal || asset('/certificates/cloudwaves-internship.png')
 
   const certs = [
-    {certId: 'udacity', title: 'Udacity Machine Learning Course', issuer: 'Udacity', image: udacityAsset || UDACITY_IMAGE, original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
-    {certId: 'iayp', title: 'IAYP International Award', issuer: 'IAYP', image: iaypAsset, original: null}
+    {certId: 'curelystics', title: 'Frontend Developer Internship', issuer: 'Curelystics Technologies', image: curelysticsAsset, original: null},
+    {certId: 'cloudwaves', title: 'React.js Developer Internship', issuer: 'CloudWaves Private Limited', image: cloudwavesAsset, original: null},
+    {certId: 'udacity', title: 'Introducing Generative AI with AWS', issuer: 'Udacity (AWS AI & ML Scholars)', image: udacityAsset || UDACITY_IMAGE, original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'},
+    {certId: 'iayp', title: 'The Duke of Edinburgh’s International Award', issuer: 'IAYP (Bronze Standard)', image: iaypAsset, original: null}
   ]
 
   return (
     <section className="max-w-6xl mx-auto px-6 py-12">
-      <h2 className="text-3xl font-semibold text-slate-900">Certifications</h2>
+      <h2 className="text-5xl lg:text-6xl font-black text-slate-900 tracking-tight">Certifications</h2>
 
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
         {certs.map(c => (

@@ -9,6 +9,7 @@ import Education from './pages/Education'
 import Certifications from './pages/Certifications'
 import CertView from './pages/CertView'
 import Projects from './pages/Projects'
+import InternshipExperience from './pages/InternshipExperience'
 import Contact from './pages/Contact'
 
 export default function App(){
@@ -24,6 +25,8 @@ export default function App(){
             <Route path="/education" element={<Education/>} />
             <Route path="/certifications" element={<Certifications/>} />
             <Route path="/certifications/:certId" element={<CertView/>} />
+            <Route path="/internship-experience" element={<InternshipExperience/>} />
+            <Route path="/experience" element={<InternshipExperience/>} />
             <Route path="/projects" element={<Projects/>} />
             <Route path="/contact" element={<Contact/>} />
           </Routes>

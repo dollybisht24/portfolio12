@@ -7,10 +7,9 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 gap-10 items-start mb-12">
           <div className="lg:col-span-12">
-            <p className="text-2xl md:text-3xl text-indigo-600 font-extrabold">About</p>
-            <h1 className="mt-4 text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">Hello — I’m Dolly, a Frontend Developer focused on performant, accessible interfaces.</h1>
-            <h2 className="sr-only">About Dolly</h2>
-            <p className="mt-4 text-lg lg:text-xl text-slate-700 lg:pr-12">I am a BCA student at Himachal Eternal University with a strong focus on Frontend Development. I build accessible, high-performance, and visually engaging web applications using React.js, HTML, CSS, and JavaScript. I also have working knowledge of backend technologies including Node.js and MongoDB, which helps me create well-integrated, scalable solutions.</p>
+            <h2 className="text-5xl lg:text-6xl font-black text-slate-900 tracking-tight">About</h2>
+            <h1 className="mt-6 text-3xl lg:text-4xl font-semibold text-slate-900 leading-tight">Hello — I’m Dolly, a Full Stack Developer focused on scalable, performant, and accessible web applications.</h1>
+            <p className="mt-4 text-lg lg:text-xl text-slate-700 lg:pr-12">I am a BCA student at Eternal University with a strong focus on Full Stack Development. I build accessible, high-performance, and visually engaging web applications using React.js, Node.js, Express, MongoDB, and REST APIs, creating well-integrated, scalable solutions from database to user interface.</p>
 
             <p className="mt-6 text-lg lg:text-xl text-slate-700 lg:pr-12">My approach emphasizes clean code, maintainability, and inclusive user experiences. I believe thoughtful design combined with clear logic and documentation is essential for building reliable digital products. I continuously refine my skills through hands-on projects and self-directed learning.</p>
           </div>

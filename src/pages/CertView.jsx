@@ -5,15 +5,29 @@ import { ArrowLeft, Download, Printer, Loader2 } from 'lucide-react'
 // Import certificates
 import udacityLocal from '../assets/certificates/udacity.png'
 import iaypLocal from '../assets/certificates/iayp.jpg'
+import curelysticsLocal from '../assets/certificates/curelystics-internship.png'
+import cloudwavesLocal from '../assets/certificates/cloudwaves-internship.png'
 
 function asset(path){
   return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
 }
 
 const certificates = {
+  curelystics: {
+    title: 'Frontend Developer Internship',
+    issuer: 'Curelystics Technologies',
+    image: curelysticsLocal || asset('/certificates/curelystics-internship.png'),
+    original: null
+  },
+  cloudwaves: {
+    title: 'React.js Developer Internship',
+    issuer: 'CloudWaves Private Limited',
+    image: cloudwavesLocal || asset('/certificates/cloudwaves-internship.png'),
+    original: null
+  },
   udacity: {
     title: 'Introducing Generative AI with AWS',
-    issuer: 'Udacity',
+    issuer: 'Udacity (AWS AI & ML Scholars)',
     image: udacityLocal || asset('/certificates/udacity.png'),
     original: 'https://www.udacity.com/certificate/e/0a8fda46-58fa-11f0-ac03-5310f9337344'
   },
